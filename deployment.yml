@@ -1,0 +1,20 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: simulador-mdb-deployment
+  namespace: tlacotec
+spec:
+  selector:
+    matchLabels:
+      app: simulador-mdb
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: simulador-mdb
+    spec:
+      containers:
+      - name: oobravom-simulador-mdb
+        image: oobravom/simulador-mdb:1.0-SNAPSHOT
+        ports:
+        - containerPort: 3306
